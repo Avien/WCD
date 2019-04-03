@@ -22,7 +22,7 @@ export class ChartDataService {
                     };
                     for (const date in response['Time Series (5min)']) {
                         if (date) {
-                            const dateTime = new Date(date);
+                            const dateTime = new Date(date.replace(/-/g, '/'));
                             model.series.push({
                                 name: this.datePipe.transform(dateTime, 'shortTime'),
                                 value: response['Time Series (5min)'][date]['4. close']
