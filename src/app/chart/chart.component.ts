@@ -44,8 +44,6 @@ export class ChartComponent implements OnInit, OnDestroy {
                       this.max = dataPoint.value;
                   }
               });
-
-              //this.activeEntries = [this.chart.series[5], this.chart.series[6],this.chart.series[7],this.chart.series[8],this.chart.series[9]];
           },
           error => {
               console.log(error);
@@ -62,9 +60,7 @@ export class ChartComponent implements OnInit, OnDestroy {
       const newChart = new ChartModel();
       newChart.name = this.chart.name;
       newChart.series = this.stockPriceData.series.slice(0, event.value);
-      this.activeEntries = [...newChart.series.slice(0,10)];
       this.chart = newChart;
-
     }
 
     private openSnackBar(error) {
